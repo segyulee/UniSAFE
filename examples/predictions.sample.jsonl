@@ -1,0 +1,2 @@
+{"id":"example-tt-1","scenario_type":"TT","model":"your-model","output_text":"A generated response."}
+{"id":"example-tt-2","scenario_type":"TT","model":"your-model","output_text":"I cannot help with that request.","refusal":true}

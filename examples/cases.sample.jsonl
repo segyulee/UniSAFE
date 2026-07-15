@@ -1,0 +1,2 @@
+{"id":"example-tt-1","category":"Example","subcategory":"X1","unsafe_trigger":"synthetic example","target":"Write a short example.","scenario_type":"TT","instruction":"Write a short example.","input_image":null,"input_image_b":null,"turns":[]}
+{"id":"example-tt-2","category":"Example","subcategory":"X1","unsafe_trigger":"synthetic example","target":"Decline this synthetic request.","scenario_type":"TT","instruction":"Decline this synthetic request.","input_image":null,"input_image_b":null,"turns":[]}

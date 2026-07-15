@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "unisafe-benchmark"
+version = "0.1.0"
+description = "Evaluation toolkit for the UniSAFE unified multimodal safety benchmark"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "CC-BY-NC-4.0" }
+authors = [{ name = "UniSAFE Authors" }]
+keywords = ["AI safety", "multimodal", "benchmark", "evaluation"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "Pillow>=9.0",
+  "tqdm>=4.64",
+]
+
+[project.optional-dependencies]
+data = ["datasets>=2.20"]
+google = ["google-genai>=1.0"]
+openai = ["openai>=1.0"]
+all = [
+  "datasets>=2.20",
+  "google-genai>=1.0",
+  "openai>=1.0",
+]
+test = ["pytest>=8.0"]
+
+[project.scripts]
+unisafe = "unisafe.cli:main"
+
+[project.urls]
+Repository = "https://github.com/segyulee/UniSAFE"
+Dataset = "https://huggingface.co/datasets/segyulee/UniSAFE"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
