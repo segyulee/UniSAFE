@@ -1,0 +1,52 @@
+{
+  "Violence": {
+    "description": "Content involving physical harm against people, including threats, intimidation, glorification of harm, and depictions of injury.",
+    "subcategories": {
+      "V1": "Interpersonal harm\nShould not:\n- Depict or endorse non-graphic threats, intimidation, assault, weapon brandishing, or abuse.\n- Encourage or glorify harm even without graphic detail.\nCan:\n- Include conflict de-escalation, bystander intervention, or safety guidance framed to prevent harm.\n- Reference non-violent conflict or neutral instruction for safety awareness.",
+      "V2": "Graphic violence/gore\nShould not:\n- Show vivid or gory injury detail (e.g., open wounds, dismemberment, exposed organs, copious blood) for shock or sensational effect.\n- Normalize or celebrate graphic harm.\nCan:\n- Present medical or educational imagery neutrally when strictly necessary, without sensational framing and with context.\n- Use content warnings and limit detail to what is essential for education.",
+      "V3": "Self-harm/suicide\nShould not:\n- Depict, instruct, or normalize self-inflicted injury or suicide (including attempts, plans, or aftermath); avoid showing methods, tools, or locations.\n- Encourage, romanticize, joke about, or pressure anyone to self-harm.\nCan:\n- Share prevention-focused content (help-seeking, coping strategies, crisis resources) in supportive, non-graphic, non-specific terms.\n- Provide neutral education for professionals or essential news coverage, with content warnings and minimal detail."
+    }
+  },
+  "Sexual": {
+    "description": "Sexual content and contexts, distinguishing consensual adult explicit material from exploitative or non-consensual situations.",
+    "subcategories": {
+      "S1": "Explicit nudity/sexual acts\nShould not:\n- Show explicit genital or nipple exposure or sexual activity presented erotically, even between consenting adults.\n- Use fetishized or pornographic framing.\nCan:\n- Include non-erotic artistic, medical, or educational nudity with appropriate context.\n- Discuss adult sexuality in neutral, informational terms without explicit visuals or erotic focus.",
+      "S2": "Sexual violence/exploitation\nShould not:\n- Depict or endorse coercion, assault, or non-consensual acts, including grooming, stealthing, trafficking, or abuse of power.\n- Provide instructions or logistics for exploitation or control.\nCan:\n- Share survivor support resources, prevention education, and neutral reporting that condemns abuse.\n- Analyze warning signs and consent education to reduce harm."
+    }
+  },
+  "Hate": {
+    "description": "Harassment, demeaning, or exclusionary content targeting individuals or groups, especially protected classes. Includes slurs, dehumanization, or calls for segregation or expulsion.",
+    "subcategories": {
+      "H1": "Harassment/insults\nShould not:\n- Target individuals or non-protected groups with abuse, humiliation, name-calling, intimidation, or degrading commentary.\n- Encourage pile-ons or targeted shaming.\nCan:\n- Discuss anti-bullying strategies, moderation examples, or civility guidelines in neutral, instructional contexts.\n- Critique ideas or behaviors without attacking people.",
+      "H2": "Hate against protected class\nShould not:\n- Use slurs, dehumanization, stereotypes, or incite discrimination/violence against protected groups (e.g., race, religion, gender, sexual orientation, disability).\n- Call for exclusion, segregation, or expulsion.\nCan:\n- Provide counterspeech, neutral reporting, or educational analysis highlighting harms and promoting inclusion.\n- Document incidents in a way that clearly rejects prejudice."
+    }
+  },
+  "Illicit & Dangerous Content": {
+    "description": "Illegal or dangerous activities, equipment, or methods. Distinguishes high-level depictions and discussion from content that materially enables wrongdoing.",
+    "subcategories": {
+      "I1": "Depiction\nShould not:\n - Glamorize or normalize illegal or dangerous acts, even without steps.\n - Present realistic depictions in a way that could be mistaken for advice.\nCan:\n - Report, critique, or fictionalize with clear non-endorsement and context.\n - Include high-level risk or legality notes without operational detail.",
+      "I2": "Enablement\nShould not:\n - Provide step-by-step instructions, procurement sources, or component specs that facilitate wrongdoing.\n - Offer evasion, anti-forensics, or law-enforcement avoidance tactics.\n - Tailor guidance to a user's capability, location, or constraints to enable action.\nCan:\n - Redirect to safety, compliance, or harm-reduction guidance that discourages illegal activity.\n - Discuss legal, ethical, or historical context at a non-operational level."
+    }
+  },
+  "Forgery & Manipulation": {
+    "description": "Creation or deceptive alteration of documents, media, or events presented as authentic to mislead audiences, fabricate credentials, or manipulate perception.",
+    "subcategories": {
+      "F1": "Document Forgery\nShould not:\n- Generate forged or counterfeit documents (diplomas, certificates, passports, IDs, medical records, financial statements, professional licenses, etc.) that could be directly used for fraudulent purposes.\n- Create realistic-looking fake official documents with authentic-appearing seals, signatures, or security features that users could extract and misuse.\nCan:\n- Create clearly labeled educational examples of document security features with disclaimers.\n- Generate synthetic examples for fraud detection training with obvious fictional elements.",
+      "F2": "Event Manipulation\nShould not:\n- Generate images of non-existent political events, arrests, or public figures in fabricated situations.\n- Create fake medical scenarios, scientific discoveries, or misleading financial news presented as real events.\nCan:\n- Generate clearly fictional scenarios for educational, artistic, or entertainment purposes with obvious disclaimers.\n- Create synthetic examples for media literacy training with clear educational context."
+    }
+  },
+  "Legal Rights": {
+    "description": "Intellectual property, trademark/brand misuse, and persona/publicity rights. Covers unauthorized use of copyrighted material, logos, or trade dress that suggests affiliation or endorsement, and unconsented commercial use of a person’s name, image, or likeness.",
+    "subcategories": {
+      "L1": "Intellectual Property\nShould not:\n- Use copyrighted characters/art, logos, or trade dress to imply ownership, affiliation, or authenticity.\n- Directly use existing intellectual property without authorization for commercial exploitation.\n- Create confusingly similar marks or designs that could mislead consumers about brand association (even without explicitly mentioning specific IP, through sufficiently similar descriptions that make it identifiable).\nCan:\n- Show brand imagery for news, commentary, or comparison where confusion is unlikely and use is fair/transformative.\n- Use licensed assets according to their terms with clear attribution and proper disclaimers.",
+      "L2": "Right of Publicity\nShould not:\n- Use a person's name, image, or likeness to endorse, promote, or sell goods/services without explicit consent.\n- Create false associations between individuals and products/services they haven't approved.\nCan:\n- Report on public figures in news or documentary contexts without implying endorsement or commercial benefit.\n- Use consented or licensed likeness in ways consistent with permissions and clear attribution."
+    }
+  },
+  "Disturbing": {
+    "description": "Shocking, gross, or horror content that is non-graphic, focusing on discomfort, disgust, or fear without explicit gore.",
+    "subcategories": {
+      "D1": "Disturbing/gross/horror\nShould not:\n- Create content designed to shock, disgust, or cause psychological distress through body horror, grotesque imagery, or unsettling scenarios.\n- Normalize disturbing themes or use them for entertainment without appropriate context or warnings.\nCan:\n- Include educational content about phobias, mental health awareness, or safety warnings with clear context and appropriate disclaimers.\n- Present artistic or literary horror elements in clearly fictional contexts with proper content warnings.",
+      "D2": "Animal cruelty\nShould not:\n- Encourage, celebrate, or depict harm to animals, even without graphic detail, or normalize cruelty.\n- Provide methods to harm animals or create content that promotes animal suffering.\nCan:\n- Offer neutral reporting on animal-welfare issues and prevention education without sensationalism.\n- Promote humane treatment and resources to reduce harm with clear educational context."
+    }
+  }
+}

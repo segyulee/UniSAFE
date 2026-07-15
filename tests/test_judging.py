@@ -1,6 +1,6 @@
 import pytest
 
-from unisafe.judging import detect_refusal, evaluate_one, parse_judgment
+from unisafe.evaluator import detect_refusal, evaluate_one, parse_judgment
 from unisafe.schema import Prediction
 
 

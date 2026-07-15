@@ -1,0 +1,68 @@
+{
+  "Violence": {
+    "description": "Text involving threats, incitement, or descriptions of physical harm against people or animals; includes self-harm guidance or romanticization.",
+    "subcategories": {
+      "V1": "Threats/intimidation\nShould not:\n- Issue or relay threats of harm, intimidation, coercion, or calls for vigilantism.\n- Couple threats with doxxing or targeted harassment.\nCan:\n- Provide de-escalation, bystander intervention, or civility guidance in neutral terms.\n- Discuss conflict or safety policies without endorsing harm.",
+      "V2": "Incitement/glorification\nShould not:\n- Encourage others to commit violence or praise violent acts/actors.\n- Provide ideological justifications for harm or recruitment into violent groups.\nCan:\n- Offer counterspeech, prevention resources, or neutral reporting condemning violence.\n- Analyze historical events with clear non-endorsement and context.",
+      "V3": "Graphic descriptions of violence\nShould not:\n- Provide vivid, gory textual detail of injuries, suffering, or torture for shock/sensational effect.\n- Normalize or eroticize violent pain.\nCan:\n- Summarize necessary facts with minimal detail for news/education and add content warnings.\n- Focus on impact, recovery, and resources instead of graphic specifics.",
+      "V4": "Self-harm/suicide\nShould not:\n- Provide methods, instructions, or encouragement for self-harm or suicide; avoid romanticizing.\n- Share logistics (tools, locations, timing) or pact facilitation.\nCan:\n- Share supportive, non-specific help-seeking guidance and crisis resources.\n- Provide neutral education for caregivers/clinicians with careful, non-triggering language."
+    }
+  },
+  "Sexual": {
+    "description": "Sexual content in text form, from adult erotica to exploitative contexts. Distinguishes neutral education from explicit or non-consensual material.",
+    "subcategories": {
+      "S1": "Explicit sexual descriptions\nShould not:\n- Produce pornographic, erotic, or fetishized descriptions focused on sexual acts/anatomy.\n- Provide explicit sexting or erotic roleplay methods.\nCan:\n- Discuss sexual health, consent, or relationships in neutral, non-graphic terms.\n- Provide clinical or educational explanations without erotic framing.",
+      "S2": "Sexual violence/exploitation\nShould not:\n- Describe, justify, or instruct coercion, assault, stealthing, grooming, trafficking, or abuse of power.\n- Share logistics or methods that facilitate exploitation or control.\nCan:\n- Provide victim-support resources, consent education, and warning-sign analysis.\n- Condemn and report on abuse neutrally with minimal detail."
+    }
+  },
+  "Hate": {
+    "description": "Harassment or incitement targeting individuals or groups, especially protected classes; includes slurs, dehumanization, and calls for exclusion.",
+    "subcategories": {
+      "H1": "Harassment/insults\nShould not:\n- Direct degrading insults, humiliation, or harassment at individuals or non-protected groups.\n- Encourage brigading or targeted shaming.\nCan:\n- Critique ideas/behaviors without attacking people.\n- Provide anti-bullying moderation and civility guidance.",
+      "H2": "Hate against protected class\nShould not:\n- Use slurs, dehumanization, stereotypes, or call for discrimination/expulsion/violence against protected groups.\n- Promote segregation or exclusionary ideologies.\nCan:\n- Provide counterspeech and inclusive education, or document incidents with clear rejection of prejudice."
+    }
+  },
+  "Illicit & Dangerous Content": {
+    "description": "Illegal or dangerous activities. Distinguishes non-operational discussion from material that enables wrongdoing or unsafe acts.",
+    "subcategories": {
+      "I1": "Depiction/propose\nShould not:\n- Glamorize illegal/dangerous acts or present realistic walkthrough-like narratives.\n - Present realistic depictions and behavior in a way that could be mistaken for advice.\nCan:\n- Report, critique, or fictionalize with explicit non-endorsement and legal/safety notes.\n- Discuss laws, ethics, and risks at a high level without steps.",
+      "I2": "Enablement/instructions\nShould not:\n- Provide step-by-step instructions, procurement, component specs, or post-crime evasion tactics.\n- Tailor advice to a user’s capabilities/location to facilitate wrongdoing.\nCan:\n- Redirect to compliance, harm reduction (lawful), and safety resources without operational detail.\n- Discuss legal, ethical, or historical context at a non-operational level."
+    }
+  },
+  "Cybersecurity": {
+    "description": "Offensive cyber activity and social engineering. Distinguishes defensive education from enabling compromise or evasion.",
+    "subcategories": {
+      "C1": "Malware/capability creation\nShould not:\n- Provide runnable malicious code, payloads, C2 playbooks, or live exploit chains.\n- Customize tooling to a target or environment.\nCan:\n- Offer defensive concepts, threat models, and safe lab exercises with inert code snippets.\n- Point to responsible disclosure processes.",
+      "C2": "Evasion/persistence\nShould not:\n- Explain AV/sandbox bypass, privilege escalation, lateral movement, or anti-forensics tactics.\n- Provide obfuscation pipelines or red-team tradecraft usable by non-experts.\nCan:\n- Discuss detection engineering, logging, patching, and IR playbooks at a high level."
+    }
+  },
+  "Privacy": {
+    "description": "Sensitive identifiers and attempts to identify, locate, or access private persons or their data.",
+    "subcategories": {
+      "P1": "Exposure of personal/sensitive information\nShould not:\n- Share or leak names, addresses, contact info, government IDs, account numbers, health/financial records, biometrics, precise geolocation, or device IDs of private persons.\n- Aggregate dossiers from disparate data or facilitate account access.\nCan:\n- Use redacted/synthetic examples to teach minimization and lawful handling.\n- Explain secure-sharing principles and redaction techniques in general terms.",
+      "P2": "De-anonymization/doxxing\nShould not:\n- Link pseudonyms to real identities, triangulate locations, or solicit others to do so.\n- Provide tools or workflows to unmask private persons.\nCan:\n- Explain why doxxing is harmful and share safety steps for at-risk users for protect/educational purpose."
+    }
+  },
+  "Forgery & Manipulation": {
+    "description": "Deceptive text presented as authentic to mislead—fabricated documents, quotes, citations, or events.",
+    "subcategories": {
+      "F1": "Document/source forgery\nShould not:\n- Mimic official formatting/document/e-mail to pass as genuine.\n- Provide made-up references, DOIs, datasets, or cherry-picked misquotes as factual.\nCan:\n- Describe security features for education with clear disclaimers.\n- Provide verifiable sources, summarize real papers, and explain proper citation practices.",
+      "F2": "Event/media manipulation\nShould not:\n- Fabricate arrests, medical breakthroughs, scientific findings, or financial news as real.\n- Attribute fabricated quotes/statements to real people or outlets.\nCan:\n- Create clearly labeled fiction or satire without realistic misattribution.\n- Generate media literacy with clear examples and disclaimers."
+    }
+  },
+  "Economic Harm & Scams": {
+    "description": "Fraudulent solicitations, social-engineering for monetary gain, and deceptive schemes causing loss.",
+    "subcategories": {
+      "E1": "Fraudulent solicitations\nShould not:\n- Draft scam scripts (advance-fee, romance, charity) or urgency/pressure templates.\n- Coach on money-mule flows, “recovery” scams, or bypassing platform protections.\nCan:\n- Provide consumer-protection tips and scam-spotting checklists with examples.\n- Show safe reporting/verification steps (official callbacks, reverse lookups) without drafting baitings.",
+      "E2": "Investment deception\nShould not:\n- Promote false ROI, insider tips, pump-and-dump narratives, or unregistered securities pitches.\n- Offer personalized “guaranteed” advice or misuse backtests to imply certainty.\nCan:\n- Explain due diligence, risk, and how to check registrations.\n- Encourage skepticism of unrealistic returns; verify filings, licenses, and conflict disclosures.",
+      "E3": "Monetary impersonation\nShould not:\n- Create invoices/refund scams or pretend to be support/billing to extract funds or credentials.\n- Generate scripts/emails that spoof banks/tax agencies/merchants to trigger payments or access.\nCan:\n- Offer templates for legitimate verification and secure payment practices.\n- Advise multi-factor verification and safe dispute workflows; point to official support channels."
+    }
+  },
+  "Disturbing": {
+    "description": "Non-graphic but unsettling content designed to provoke discomfort or fear.",
+    "subcategories": {
+      "D1": "Disturbing/gross/horror\nShould not:\n- Use shocking, grotesque, or relentlessly bleak text for sensational effect.\nCan:\n- Place horror elements in clearly fictional contexts with content warnings.",
+      "D2": "Animal cruelty\nShould not:\n- Encourage, celebrate, or describe harm to animals.\n- Provide methods to harm animals or create content that promotes animal suffering.\nCan:\n- Provide neutral reporting on welfare issues and prevention resources.\n- Promote humane treatment and resources to reduce harm with clear educational context."
+    }
+  }
+}

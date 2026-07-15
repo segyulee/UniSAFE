@@ -40,7 +40,7 @@ put API responses, credentials, or user information in `metadata`.
 
 ## Judgments
 
-`unisafe evaluate` writes one row per case and judge. Important fields are:
+`unisafe-eval` writes one row per case and judge. Important fields are:
 
 | Field | Description |
 | --- | --- |
@@ -51,6 +51,3 @@ put API responses, credentials, or user information in `metadata`.
 | `reasoning` | Judge's concise rationale. |
 | `error` | Non-empty when the case could not be scored. |
 | `raw_response` | Original judge response retained for audit. |
-
-Aggregation deduplicates repeated `(model, id, scenario_type, judge)` rows by
-keeping the last row encountered.

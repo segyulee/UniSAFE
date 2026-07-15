@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import os
-from collections import Counter
 from pathlib import Path
 from typing import Any, Iterable, Mapping
 
@@ -61,25 +60,3 @@ def validate_cases(rows: Iterable[Mapping[str, Any]], *, split: str) -> None:
         if key in seen:
             raise ValueError(f"case {index}: duplicate case key {key}")
         seen.add(key)
-
-
-def summarize_cases(rows: Iterable[Mapping[str, Any]]) -> dict[str, Any]:
-    rows = list(rows)
-    return {
-        "total": len(rows),
-        "tasks": dict(sorted(Counter(str(row["scenario_type"]) for row in rows).items())),
-        "categories": dict(sorted(Counter(str(row["category"]) for row in rows).items())),
-        "subcategories": dict(
-            sorted(Counter(str(row["subcategory"]) for row in rows).items())
-        ),
-    }
-
-
-def resolve_local_image(value: Any, *, base_dir: str | Path | None = None) -> Any:
-    """Resolve JSONL image paths while leaving decoded Hub images untouched."""
-    if not isinstance(value, str) or not value:
-        return value
-    path = Path(value)
-    if not path.is_absolute() and base_dir is not None:
-        path = Path(base_dir) / path
-    return path

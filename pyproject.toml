@@ -37,7 +37,7 @@ all = [
 test = ["pytest>=8.0"]
 
 [project.scripts]
-unisafe = "unisafe.cli:main"
+unisafe-eval = "unisafe.cli:main"
 
 [project.urls]
 Repository = "https://github.com/segyulee/UniSAFE"
@@ -45,6 +45,9 @@ Dataset = "https://huggingface.co/datasets/segyulee/UniSAFE"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+unisafe = ["resources/*.json", "resources/prompts/*.txt"]
 
 [tool.pytest.ini_options]
 addopts = "-q"

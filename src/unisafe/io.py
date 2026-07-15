@@ -28,13 +28,3 @@ def write_jsonl(path: str | Path, rows: Iterable[Mapping[str, Any]]) -> None:
         for row in rows:
             handle.write(json.dumps(dict(row), ensure_ascii=False) + "\n")
     temporary.replace(path)
-
-
-def write_json(path: str | Path, value: Any) -> None:
-    path = Path(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_suffix(path.suffix + ".tmp")
-    with temporary.open("w", encoding="utf-8") as handle:
-        json.dump(value, handle, ensure_ascii=False, indent=2, sort_keys=True)
-        handle.write("\n")
-    temporary.replace(path)

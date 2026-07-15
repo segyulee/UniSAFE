@@ -1,178 +1,101 @@
 # UniSAFE
 
-Official evaluation toolkit for **UniSAFE: A Comprehensive Benchmark for Safety
-Evaluation of Unified Multimodal Models**.
+Official code for **UniSAFE: A Comprehensive Benchmark for Safety Evaluation of
+Unified Multimodal Models**.
 
-UniSAFE evaluates system-level safety across seven input/output configurations.
-Its 6,802 curated cases share underlying risk targets across tasks, enabling
-controlled comparisons between text, image, and multimodal interactions.
+UniSAFE contains 6,802 safety evaluation cases across seven multimodal tasks.
+The same underlying risk targets are projected across tasks, allowing controlled
+comparisons between text, image, and multimodal interactions.
 
 > [!WARNING]
-> This benchmark contains adversarial prompts and descriptions of harmful or
-> sensitive content. Dataset access is gated. Review the terms of use and use the
-> material only in appropriately secured research environments.
+> The gated dataset contains adversarial prompts and descriptions of harmful or
+> sensitive content. Use it only in an appropriately secured research setting.
 
 ![UniSAFE safety taxonomy](assets/taxonomy.png)
 
-## Benchmark coverage
+## Tasks
 
-| Output | Code | Task | Cases use |
+| Output | Code | Task | Input |
 | --- | --- | --- | --- |
-| Image | `TI` | Text-to-Image | text instruction |
-| Image | `IE` | Image Editing | image + instruction |
-| Image | `IC` | Image Composition | two images + instruction |
-| Image | `MT` | Multi-Turn Editing | four ordered turns |
-| Text | `TT` | Text-to-Text | text instruction |
-| Text | `IT` | Image-to-Text | image containing the instruction |
-| Text | `MU` | Multimodal Understanding | image + instruction |
+| Image | `TI` | Text-to-Image | text |
+| Image | `IE` | Image Editing | image + text |
+| Image | `IC` | Image Composition | two images + text |
+| Image | `MT` | Multi-Turn Editing | four turns |
+| Text | `TT` | Text-to-Text | text |
+| Text | `IT` | Image-to-Text | image |
+| Text | `MU` | Multimodal Understanding | image + text |
 
-The image split covers 15 safety subcategories and the text split covers 21.
-See [the data format](docs/data-format.md) for the full schema.
-
-## Installation
+## Install
 
 ```bash
 git clone https://github.com/segyulee/UniSAFE.git
 cd UniSAFE
-python -m venv .venv
-source .venv/bin/activate
-pip install -e '.[data]'
+pip install -e '.[data,google]'  # Gemini judge
+# pip install -e '.[data,openai]'  # OpenAI or compatible judge
 ```
 
-Install only the judge backend you need:
+Request access to the gated
+[UniSAFE dataset](https://huggingface.co/datasets/segyulee/UniSAFE), then expose
+your Hugging Face token as `HF_TOKEN`.
 
-```bash
-pip install -e '.[data,google]'
-# or
-pip install -e '.[data,openai]'
-```
+## Evaluate a model
 
-The dataset is hosted at
-[Hugging Face](https://huggingface.co/datasets/segyulee/UniSAFE). After access is
-approved, provide `HF_TOKEN` through your environment. Never commit API keys or
-Hugging Face tokens.
-
-```bash
-unisafe info --split image
-unisafe info --split text
-```
-
-## 1. Run a target model
-
-Run each benchmark case with the model's official inference code and write one
-JSON object per line. A case is uniquely identified by `(id, scenario_type)`.
-
-Text output:
+Run the target model with its official inference code and save one JSON object
+per benchmark case. Cases are identified by `(id, scenario_type)`.
 
 ```json
 {"id":"...","scenario_type":"TT","model":"my-model","output_text":"..."}
-```
-
-Single image output (`TI`, `IE`, or `IC`):
-
-```json
 {"id":"...","scenario_type":"IE","model":"my-model","output_image":"images/result.png"}
-```
-
-Multi-turn image output:
-
-```json
 {"id":"...","scenario_type":"MT","model":"my-model","output_images":["turn1.png","turn2.png","turn3.png","turn4.png"]}
 ```
 
-Record explicit model or system refusals with `"refusal": true`, and failed
-requests with a non-empty `"error"` string. Relative image paths are resolved
-from the predictions file.
+Use `"refusal": true` for explicit refusals and `"error": "..."` for failed
+requests. Relative image paths are resolved from the predictions file. The full
+format is documented in [docs/data-format.md](docs/data-format.md).
 
-```bash
-unisafe validate --predictions outputs/my-model.jsonl --check-files
-```
-
-We intentionally do not vendor rapidly changing third-party model repositories.
-This small prediction contract lets each model run in its official environment
-without mixing incompatible CUDA and package requirements into the evaluator.
-
-## 2. Judge model outputs
-
-Google example:
+Run a judge:
 
 ```bash
 export GOOGLE_API_KEY=...
-unisafe evaluate \
+
+unisafe-eval \
   --split image \
-  --predictions outputs/my-model-image.jsonl \
+  --predictions outputs/my-model.jsonl \
   --backend google \
   --judge-model gemini-2.5-pro \
-  --output outputs/judgments-gemini.jsonl \
+  --output outputs/judgments.jsonl \
   --workers 4 \
   --resume
 ```
 
-OpenAI example using the Responses API:
+For OpenAI, set `OPENAI_API_KEY` and use `--backend openai`. For an
+OpenAI-compatible Chat Completions server, use `--backend openai-compatible`
+with `--base-url`.
 
-```bash
-export OPENAI_API_KEY=...
-unisafe evaluate \
-  --split text \
-  --predictions outputs/my-model-text.jsonl \
-  --backend openai \
-  --judge-model gpt-5-nano \
-  --output outputs/judgments-gpt5nano.jsonl \
-  --workers 4 \
-  --resume
-```
+The evaluator writes the judge decision, 0–3 risk rating, reasoning, and any
+error for each case. Refusals are recorded as safe with risk rating 0. Missing
+outputs and failed judge calls remain explicit errors rather than being counted
+as safe.
 
-For a judge served through an OpenAI-compatible Chat Completions endpoint, use
-`--backend openai-compatible` with `--base-url`. The benchmark paper reports an
-ensemble of Gemini 2.5 Pro, GPT-5 nano, and Qwen2.5-VL-72B judgments. Individual
-judge files remain separate so every decision is auditable.
-
-## 3. Aggregate results
-
-```bash
-unisafe aggregate \
-  --judgments \
-    outputs/judgments-gemini.jsonl \
-    outputs/judgments-gpt5nano.jsonl \
-    outputs/judgments-qwen.jsonl \
-  --output outputs/metrics.json
-```
-
-The scorer follows the paper's hierarchy:
-
-1. Average available judges for each prompt.
-2. Average prompts within each subcategory.
-3. Macro-average subcategories within each top-level category.
-4. Macro-average top-level categories for the final task score.
-
-Reported metrics are Attack Success Rate (`ASR`), Average Risk Rating (`ARR`),
-and Refusal Rate (`RR`). Generated responses receive risk ratings 1–3; refusals
-are safe outcomes with risk rating 0. Failed target-model or judge requests are
-reported as unscored coverage instead of silently becoming safe cases.
-
-## Local dataset exports
-
-All commands accept `--cases-file path/to/cases.jsonl` in place of the Hub
-dataset. Image paths in a local case file are resolved relative to that file.
-This is useful on isolated clusters after an authorized dataset export.
-
-## Repository layout
+## Code layout
 
 ```text
-src/unisafe/       dataset validation, judge adapters, prompts, and metrics
-tests/             offline unit tests for schemas, parsing, and aggregation
-docs/              data contract and reproduction notes
-examples/          minimal prediction examples
-assets/            paper figures used by the documentation
+src/unisafe/cli.py          command-line entry point
+src/unisafe/evaluator.py    task-specific evaluation flow
+src/unisafe/providers.py    Google and OpenAI judge clients
+src/unisafe/schema.py       prediction and judgment formats
+src/unisafe/resources/      evaluation prompts and safety taxonomies
 ```
+
+Third-party model repositories are intentionally not copied here. This keeps
+their CUDA environments and licenses separate from UniSAFE evaluation code.
 
 ## Citation
 
-The paper citation and public paper URL will be added when the final metadata is
-available. Until then, please cite this repository and the title shown above.
+The citation and public paper URL will be added when the final metadata is
+available.
 
 ## License
 
-Code and documentation in this repository are released under
-[CC BY-NC 4.0](LICENSE). Dataset access and use are additionally governed by the
-terms presented on its gated Hugging Face page.
+Code and documentation are released under [CC BY-NC 4.0](LICENSE). Dataset use
+is additionally governed by the terms on its gated Hugging Face page.
