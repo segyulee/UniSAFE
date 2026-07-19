@@ -1,7 +1,22 @@
-# UniSAFE
+<div align="center">
+  <h1>UniSAFE</h1>
+  <h3>A Comprehensive Benchmark for Safety Evaluation of Unified Multimodal Models</h3>
 
-Official code for **UniSAFE: A Comprehensive Benchmark for Safety Evaluation of
-Unified Multimodal Models**.
+  <p>
+    <a href="https://arxiv.org/abs/2603.17476"><img src="https://img.shields.io/badge/arXiv-2603.17476-b31b1b.svg" alt="arXiv"></a>
+    <a href="https://huggingface.co/datasets/segyulee/UniSAFE"><img src="https://img.shields.io/badge/Hugging%20Face-Dataset-FFD21E?logo=huggingface&amp;logoColor=black" alt="Hugging Face Dataset"></a>
+    <a href="https://github.com/segyulee/UniSAFE/actions/workflows/ci.yml"><img src="https://github.com/segyulee/UniSAFE/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/License-CC%20BY--NC%204.0-green.svg" alt="License"></a>
+  </p>
+
+  <p>
+    <a href="https://arxiv.org/abs/2603.17476">📄 Paper</a> ·
+    <a href="https://huggingface.co/datasets/segyulee/UniSAFE">🤗 Dataset</a> ·
+    <a href="https://github.com/segyulee/UniSAFE">💻 Code</a>
+  </p>
+</div>
+
+## Overview
 
 UniSAFE contains 6,802 safety evaluation cases across seven multimodal tasks.
 The same underlying risk targets are projected across tasks, allowing controlled
@@ -105,8 +120,16 @@ their CUDA environments and licenses separate from UniSAFE evaluation code.
 
 ## Citation
 
-The citation and public paper URL will be added when the final metadata is
-available.
+```bibtex
+@article{lee2026unisafe,
+  title   = {UniSAFE: A Comprehensive Benchmark for Safety Evaluation of Unified Multimodal Models},
+  author  = {Lee, Segyu and Cho, Boryeong and Jung, Hojung and An, Seokhyun and
+             Kim, Juhyeong and Kwak, Jaehyun and Yang, Yongjin and Jang, Sangwon and
+             Park, Youngrok and Chang, Wonjun and Yun, Se-Young},
+  journal = {arXiv preprint arXiv:2603.17476},
+  year    = {2026}
+}
+```
 
 ## License
 
