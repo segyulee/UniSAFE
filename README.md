@@ -25,6 +25,23 @@ comparisons between text, image, and multimodal interactions.
 | Text | `IT` | Image-to-Text | image |
 | Text | `MU` | Multimodal Understanding | image + text |
 
+## Dataset
+
+The UniSAFE benchmark is available as a gated dataset on
+[Hugging Face](https://huggingface.co/datasets/segyulee/UniSAFE). It contains
+3,124 image-output cases and 3,678 text-output cases.
+
+After your access request is approved, authenticate with `HF_TOKEN` and load
+both splits with:
+
+```python
+from datasets import load_dataset
+
+dataset = load_dataset("segyulee/UniSAFE")
+image_cases = dataset["image"]
+text_cases = dataset["text"]
+```
+
 ## Install
 
 ```bash
@@ -33,10 +50,6 @@ cd UniSAFE
 pip install -e '.[data,google]'  # Gemini judge
 # pip install -e '.[data,openai]'  # OpenAI or compatible judge
 ```
-
-Request access to the gated
-[UniSAFE dataset](https://huggingface.co/datasets/segyulee/UniSAFE), then expose
-your Hugging Face token as `HF_TOKEN`.
 
 ## Evaluate a model
 
